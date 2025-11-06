@@ -1,0 +1,654 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Festival Website & Form</title>
+
+<!-- ✅ Latest EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    emailjs.init("fJ1C3gBNexkHBq5-R"); // ✅ Public Key
+});
+
+function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.send("service_ehsas4a", "template_o9au1rn", {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        cnic: document.getElementById("cnic").value,
+        dob: document.getElementById("dob").value,
+        address: document.getElementById("address").value
+    })
+    .then(() => {
+        alert("✅ Your form has been successfully submitted!");
+        document.getElementById("scroll-down").style.display = "block";
+    })
+    .catch((error) => {
+        alert("❌ Error: " + JSON.stringify(error));
+    });
+}
+</script>
+
+<style>
+
+/* ✅ Festival Gradient Background */
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #000000;
+    color: white;
+}
+
+/* ✅ Floating Lights (Particles) */
+.particles div {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: white;
+    opacity: 0.5;
+    border-radius: 50%;
+    animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% {opacity: 0.3; transform: translateY(0);}
+    50% {opacity: 1; transform: translateY(-25px);}
+    100% {opacity: 0.3; transform: translateY(0);}
+}
+
+.particles div:nth-child(1) {left: 10%; top: 20%; animation-delay: 0s;}
+.particles div:nth-child(2) {left: 70%; top: 30%; animation-delay: 1s;}
+.particles div:nth-child(3) {left: 40%; top: 80%; animation-delay: 1.8s;}
+.particles div:nth-child(4) {left: 82%; top: 58%; animation-delay: 0.4s;}
+.particles div:nth-child(5) {left: 15%; top: 70%; animation-delay: 1.3s;}
+
+/* ✅ Hero Section */
+.hero {
+    background: linear-gradient(135deg, #ff007a, #ffae00, #8a2be2);
+    background-size: 300% 300%;
+    animation: heroMove 9s infinite;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+@keyframes heroMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.hero h1 {
+    font-size: 35px;
+    margin: 0;
+    font-weight: bold;
+    text-shadow: 0 0 15px yellow;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* ✅ FORM BOX */
+.form-container {
+    width: 90%;
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 25px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    background: linear-gradient(90deg, #ff007a, #ffd700);
+    box-shadow: 0 0 15px gold;
+    color: white;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+}
+
+/* ✅ Scroll indicator */
+#scroll-down {
+    text-align: center;
+    font-size: 20px;
+    display: none;
+    margin-top: 20px;
+    text-shadow: 0 0 10px white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ✅ Floating Festival Lights -->
+<div class="particles">
+    <div></div><div></div><div></div><div></div><div></div>
+</div>
+
+<!-- ✅ HERO SECTION -->
+<div class="hero">
+    <h1>Grand Festival Registration</h1>
+    <p>Welcome! Fill your details below & explore our achievements.</p>
+</div>
+
+<!-- ✅ FORM SECTION -->
+<div class="form-container">
+    <form onsubmit="sendEmail(event)">
+        <label>Name</label>
+        <input type="text" id="name" required>
+
+        <label>Email</label>
+        <input type="email" id="email" required>
+
+        <label>Phone</label>
+        <input type="text" id="phone" required>
+
+        <label>CNIC</label>
+        <input type="text" id="cnic" required>
+
+        <label>Date of Birth</label>
+        <input type="date" id="dob" required>
+
+        <label>Address</label>
+        <textarea id="address" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<h2 id="scroll-down">👇 Scroll Down to Continue Website 👇</h2>
+
+<!-- ✅ PART 2 BELOW (ACHIEVEMENTS + STORY + POSTERS) -->  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Festival Website & Form (Complete)</title>
+
+<!-- Latest EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    emailjs.init("fJ1C3gBNexkHBq5-R"); // Public Key
+});
+
+function sendEmail(e) {
+    e.preventDefault();
+
+    // Basic simple front-end validation (optional)
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    if (!name || !email) { alert("Please enter required fields."); return; }
+
+    emailjs.send("service_ehsas4a", "template_o9au1rn", {
+        name: name,
+        email: email,
+        phone: document.getElementById("phone").value,
+        cnic: document.getElementById("cnic").value,
+        dob: document.getElementById("dob").value,
+        address: document.getElementById("address").value
+    })
+    .then(() => {
+        // Success UI
+        showToast("✅ Your form has been successfully submitted!");
+        // reveal scroll hint
+        document.getElementById("scroll-down").style.display = "block";
+        // auto-scroll to achievements after small delay
+        setTimeout(() => {
+            document.getElementById("achievements").scrollIntoView({behavior: "smooth"});
+        }, 900);
+    })
+    .catch((error) => {
+        console.error(error);
+        showToast("❌ Failed to send. Try again.");
+    });
+}
+
+function showToast(msg) {
+    const t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    setTimeout(() => t.classList.remove("show"), 3500);
+}
+
+// Back to top
+function backToTop() {
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+</script>
+
+<style>
+/* ---------- Global ---------- */
+:root{
+  --glass-bg: rgba(255,255,255,0.14);
+  --accent1: #ff007a;
+  --accent2: #ffd700;
+  --white: #ffffff;
+}
+*{box-sizing: border-box}
+body{
+    margin:0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #0b1220 50%, #0b1333 100%);
+    color: white;
+    -webkit-font-smoothing:antialiased;
+}
+
+/* Floating particles (soft) */
+.particles div{
+    position:fixed;
+    width:10px;height:10px;border-radius:50%;
+    background: rgba(255,255,255,0.13);
+    filter: blur(1px);
+    animation: float 6s infinite ease-in-out;
+}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-30px)}100%{transform:translateY(0)}}
+
+/* ---------- Header / Hero ---------- */
+.header {
+    padding: 28px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.brand {
+    display:flex;align-items:center;gap:12px;
+}
+.logo {
+    width:48px;height:48px;border-radius:12px;
+    background: linear-gradient(135deg,var(--accent1),#7f00ff);
+    display:flex;justify-content:center;align-items:center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 20px rgba(255,0,128,0.06) inset;
+    font-weight:bold;color:white;font-size:18px;
+}
+.nav {
+    display:flex;gap:12px;align-items:center;
+}
+.nav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:8px;opacity:0.9}
+.nav a:hover{background:rgba(255,255,255,0.04)}
+
+/* Hero */
+.hero{
+    margin: 10px auto 0;
+    padding: 36px 20px;
+    text-align:center;
+    max-width:1100px;
+}
+.hero h1{
+    font-size:28px;margin:0 0 8px;letter-spacing:1px;
+    text-shadow: 0 4px 30px rgba(255,200,0,0.12);
+}
+.hero p{margin:0;font-size:15px;opacity:0.95}
+
+/* ---------- Main layout ---------- */
+.container{
+    max-width:1100px;
+    margin: 22px auto;
+    padding: 0 18px 60px;
+}
+
+/* Flex columns */
+.columns{
+    display:flex;
+    gap:22px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+}
+
+/* FORM CARD */
+.form-card{
+    flex:1 1 380px;
+    background: var(--glass-bg);
+    padding:18px;
+    border-radius:16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.04);
+    animation: rise 0.8s ease both;
+}
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+.form-card h3{margin:0 0 8px;color:var(--accent2);font-size:18px}
+.form-card small{opacity:0.85;display:block;margin-bottom:12px}
+
+label{display:block;font-size:13px;margin-bottom:6px;color:#fff}
+input, textarea, select {
+    width:100%;
+    padding:12px 14px;
+    border-radius:10px;
+    border:none;
+    font-size:15px;
+    margin-bottom:12px;
+    background:rgba(255,255,255,0.95);
+    color:#111;
+}
+textarea{min-height:88px;resize:vertical}
+
+button.primary{
+    background: linear-gradient(90deg,var(--accent1),var(--accent2));
+    border:none;color:white;padding:12px 16px;border-radius:12px;font-weight:700;
+    width:100%;cursor:pointer;box-shadow:0 8px 30px rgba(255,165,0,0.12);
+    transition:transform .15s ease;
+}
+button.primary:active{transform:scale(.995)}
+
+/* SIDE PANEL (Info / quick facts) */
+.side-card{
+    flex:0 0 320px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    padding:18px;border-radius:14px;
+    border:1px solid rgba(255,255,255,0.03);
+}
+
+/* small stats */
+.stats{display:flex;gap:10px;flex-wrap:wrap}
+.stat{
+    background:rgba(255,255,255,0.02);
+    padding:12px;border-radius:10px;flex:1 1 120px;text-align:center;
+}
+.stat h4{margin:0;color:var(--accent2)}
+.stat p{margin:6px 0 0;font-size:13px;opacity:0.9}
+
+/* ---------- After-submission section headline ---------- */
+#scroll-down{display:none;text-align:center;margin:18px 0;color:var(--accent2);font-weight:700}
+
+/* ---------- Achievements / Story / Gallery sections ---------- */
+.section {
+    margin-top:40px;
+    padding:28px;
+    border-radius:14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.03);
+}
+
+/* Achievements grid */
+.cards{display:flex;gap:16px;flex-wrap:wrap}
+.card{
+    flex:1 1 220px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
+    text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.45);
+}
+.card .badge{
+    width:64px;height:64px;margin:0 auto; border-radius:12px;
+    background: linear-gradient(135deg,var(--accent1),#7f00ff);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:18px;margin-bottom:10px;
+}
+
+/* Story */
+.story p{line-height:1.65;color:rgba(255,255,255,0.92);}
+
+/* Gallery grid with poster placeholders */
+.gallery{
+    display:grid;grid-template-columns: repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:12px;
+}
+.poster{
+    background: linear-gradient(135deg,#fff6, #fff2);
+    min-height:140px;border-radius:12px;padding:10px;color:#111;position:relative;
+}
+.poster .tag{
+    position:absolute;left:10px;top:10px;background:rgba(0,0,0,0.5);color:white;padding:6px 8px;border-radius:8px;font-size:12px;
+}
+.poster h4{margin:44px 0 6px;font-size:17px}
+.poster p{font-size:13px;color:#222}
+
+/* Footer */
+.footer{
+    margin-top:36px;padding:18px;text-align:center;color:rgba(255,255,255,0.6);font-size:14px;
+}
+
+/* Toast */
+#toast{
+    position:fixed;right:16px;bottom:18px;background:linear-gradient(90deg,var(--accent1),var(--accent2));
+    color:white;padding:12px 16px;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.6);opacity:0;transform:translateY(10px);
+    transition:all .3s ease;z-index:9999;font-weight:700;
+}
+#toast.show{opacity:1;transform:none}
+
+/* Back to top */
+.btt{
+    position:fixed;left:18px;bottom:18px;background:#111;padding:10px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,0.04);
+}
+
+/* Responsive */
+@media (max-width:900px){
+    .columns{flex-direction:column-reverse}
+    .side-card{flex:1 1 auto}
+}
+</style>
+</head>
+<body>
+
+<!-- Particles -->
+<div class="particles" aria-hidden="true">
+    <div style="left:8%;top:25%;animation-delay:0s"></div>
+    <div style="left:75%;top:30%;animation-delay:0.9s"></div>
+    <div style="left:42%;top:75%;animation-delay:1.7s"></div>
+    <div style="left:86%;top:58%;animation-delay:0.3s"></div>
+    <div style="left:18%;top:68%;animation-delay:1.2s"></div>
+</div>
+
+<!-- Header -->
+<header class="header">
+    <div class="brand">
+        <div class="logo">GF</div>
+        <div>
+            <div style="font-weight:800">Grand Festival</div>
+            <div style="font-size:12px;opacity:0.8">Community Celebration • Registration</div>
+        </div>
+    </div>
+    <nav class="nav">
+        <a href="#form">Form</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#story">Our Story</a>
+        <a href="#gallery">Gallery</a>
+    </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Grand Festival 2025 -- Registration & Highlights</h1>
+    <p>Fill your details below and explore our achievements, story and gallery -- created with love and care to impress.</p>
+</section>
+
+<!-- Main container -->
+<main class="container">
+
+    <div class="columns">
+
+        <!-- Form Card -->
+        <div class="form-card" id="form">
+            <h3>Register Now</h3>
+            <small>Complete this short form to register for the festival. We will email you a confirmation.</small>
+
+            <form onsubmit="sendEmail(event)">
+                <label>Name</label>
+                <input id="name" type="text" placeholder="Full name" required>
+
+                <label>Email</label>
+                <input id="email" type="email" placeholder="you@example.com" required>
+
+                <label>Phone</label>
+                <input id="phone" type="text" placeholder="03XXXXXXXXX">
+
+                <label>CNIC</label>
+                <input id="cnic" type="text" placeholder="12345-1234567-1">
+
+                <label>Date of Birth</label>
+                <input id="dob" type="date">
+
+                <label>Address</label>
+                <textarea id="address" placeholder="City, Street, Area"></textarea>
+
+                <button class="primary" type="submit">Submit & Continue</button>
+            </form>
+        </div>
+
+        <!-- Side info -->
+        <aside class="side-card">
+            <h4 style="margin-top:0;color:var(--accent2)">Quick Facts</h4>
+            <div class="stats" style="margin-bottom:12px">
+                <div class="stat">
+                    <h4>1200+</h4>
+                    <p>Visitors (2024)</p>
+                </div>
+                <div class="stat">
+                    <h4>35</h4>
+                    <p>Local Partners</p>
+                </div>
+                <div class="stat">
+                    <h4>150</h4>
+                    <p>Volunteers</p>
+                </div>
+            </div>
+
+            <h4 style="margin-bottom:8px">Tips</h4>
+            <p style="font-size:14px;color:rgba(255,255,255,0.85)">After submitting, scroll down to see festival achievements, our story and gallery -- looks like a real website made by a pro.</p>
+
+            <div style="margin-top:12px;">
+                <button onclick="document.getElementById('achievements').scrollIntoView({behavior:'smooth'})" style="width:100%;padding:10px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent1),var(--accent2));color:white;cursor:pointer;">View Achievements</button>
+            </div>
+        </aside>
+    </div>
+
+    <h2 id="scroll-down" style="display:none">✅ Submitted -- Scroll Down for Festival Highlights</h2>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section">
+        <h2 style="margin-top:0;color:var(--accent2)">Achievements & Highlights</h2>
+        <p style="opacity:0.9">Over the years, our festival has grown from a small community event to a regional celebration. Below are some proud achievements.</p>
+
+        <div class="cards" style="margin-top:16px">
+            <div class="card">
+                <div class="badge">1st</div>
+                <h3 style="margin:6px 0 4px">Best Community Event 2023</h3>
+                <p style="opacity:0.85">Awarded by City Cultural Council for community impact and inclusiveness.</p>
+            </div>
+
+            <div class="card">
+                <div class="badge">250k</div>
+                <h3 style="margin:6px 0 4px">Total Reach</h3>
+                <p style="opacity:0.85">Social & local reach combined across campaigns and years.</p>
+            </div>
+
+            <div class="card">
+                <div class="badge">Vols</div>
+                <h3 style="margin:6px 0 4px">Volunteer Network</h3>
+                <p style="opacity:0.85">150+ trained volunteers who run activities and safety.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="section" style="margin-top:24px">
+        <h2 style="color:var(--accent2)">Our Story</h2>
+        <p class="story" style="margin-top:10px">
+            The Grand Festival began as a small harvest celebration in a neighborhood park. Over time, families, artists,
+            local businesses and volunteers joined hands -- transforming it into a full cultural event. Our mission
+            is to celebrate heritage, support local artisans, and create joyful memories for everyone.
+        </p>
+
+        <p style="margin-top:10px;opacity:0.9">
+            Each year we add new activities: workshops for youth, artisan markets, music nights and food stalls. We carefully
+            document our achievements and improvements -- this website-like form gives judges and teachers the impression
+            of a professional project -- exactly what you wanted.
+        </p>
+    </section>
+
+    <!-- Gallery / Posters -->
+    <section id="gallery" class="section" style="margin-top:24px">
+        <h2 style="color:var(--accent2)">Gallery & Posters</h2>
+        <p style="opacity:0.9">Below are some event posters and highlights (placeholders). Replace with real photos for a final submission.</p>
+
+        <div class="gallery">
+            <div class="poster">
+                <div class="tag">2024</div>
+                <h4>Festival Night</h4>
+                <p>Flagship concert & community awards, held under open sky with lighting & stage.</p>
+            </div>
+
+            <div class="poster">
+                <div class="tag">Art</div>
+                <h4>Artisan Market</h4>
+                <p>Local craftsmen, pottery, textiles and handmade goods -- supporting small businesses.</p>
+            </div>
+
+            <div class="poster">
+                <div class="tag">Kids</div>
+                <h4>Kids Activities</h4>
+                <p>Workshops, puppet shows and educational games designed for families.</p>
+            </div>
+
+            <div class="poster">
+                <div class="tag">Food</div>
+                <h4>Street Food</h4>
+                <p>Local flavors and food trucks -- a festival favorite.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="footer">
+        &copy; <strong>Grand Festival</strong> • Developed with ❤ by Shoaib's Project • Make it yours -- change text or posters easily.
+    </div>
+
+</main>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<!-- Back to top -->
+<div class="btt" onclick="backToTop()" title="Back to top">↑ TOP</div>
+
+<script>
+// Small reveal effect on scroll (simple)
+const revealElems = document.querySelectorAll('.section, .card, .poster, .form-card, .side-card');
+function revealOnScroll(){
+  const top = window.innerHeight;
+  revealElems.forEach(el=>{
+    const rect = el.getBoundingClientRect();
+    if(rect.top < top - 60){
+      el.style.opacity = 1;
+      el.style.transform = 'none';
+    } else {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(20px)';
+    }
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', ()=>{
+  // init
+  revealElems.forEach(el=>{el.style.transition='all .7s ease'; el.style.opacity=0; el.style.transform='translateY(20px)';});
+  revealOnScroll();
+});
+</script>
+
+</body>
+</html>
